@@ -19,23 +19,21 @@ open class CheckPalindrome{
 }
 
 class Palindrome:CheckPalindrome(){
-    fun palindromeNumber(start:Long,end:Long){
-        val list: MutableList<Long> = ArrayList()
-
-        for (i in start..end) {
-            if (findPalindrome(i)) {
-                list.add(i)
+    fun palindromeNumber(end:Int){
+        var list = mutableListOf<Any>()
+        var loop = end
+        var i=1
+        while (loop >= 1) {
+            if (findPalindrome(i.toLong())){
+                list.add(i.toLong())
+                loop--
             }
+            i++
         }
-        println("Palindrome Numbers from $start to $end  : $list")
+        println("First $end Palindrome Numbers  : $list")
     }
 }
 fun main(args:Array<String>){
-    println("Enter Start range")
-    var start = Integer.valueOf(readLine())
-
-    println("Enter End of range")
-    var end = Integer.valueOf(readLine())
-
-    Palindrome().palindromeNumber(start.toLong(),end.toLong())
+    println("Enter the number of palindromes you want")
+    Palindrome().palindromeNumber(Integer.valueOf(readLine()))
 }
